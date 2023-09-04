@@ -10,7 +10,7 @@
 
  
 
-#Project idea:
+# Project idea:
 Video Game Idea
 - platformer game, multiple levels, maybe high score tracked, single player
 - movement abilities/powerups
