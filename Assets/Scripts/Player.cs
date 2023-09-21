@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float thrustSpeed = 1.0f;
+
+    private Rigidbody2D _rigidBody;
+    private float _turnDirection;
+    private bool _thrusting;
+
+    private void Awake()
     {
-        
+        _rigidBody = GetComponent<Rigidbody2d>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        _thrusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+
+        if ((Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)) {
+            _turnDirection = -1.0f;
+        } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) { 
+            _turnDirection = -1.0f;
+        } else {
+            _turnDirection = 0.0f;
+        }       
+    }
+
+    private void FixedUpdate()
+    {
+        if (_thrusting)
+        {
+            _rigidBody.AddForce(this.transform.up * this.thrustSpeed)
+        }
     }
 }
