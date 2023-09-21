@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody2d>();
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
         _thrusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
 
-        if ((Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        if ((Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.LeftArrow))) {
             _turnDirection = -1.0f;
         } else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) { 
             _turnDirection = -1.0f;
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     {
         if (_thrusting)
         {
-            _rigidBody.AddForce(this.transform.up * this.thrustSpeed)
+            _rigidBody.AddForce(this.transform.up * this.thrustSpeed);
         }
     }
 }
