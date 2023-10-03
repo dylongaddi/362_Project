@@ -11,13 +11,8 @@
  
 
 # Project idea:
-Video Game Idea
-- platformer game, multiple levels, maybe high score tracked, single player
-- movement abilities/powerups
-- multiple iconic pop culture characters, main character changes into these characters
-- very partially inspired by broforce: https://store.steampowered.com/app/274190/Broforce/Links to an external site.
-- other game inspiration includes super mario other platformers etc.
-- creating multiple different enemies
+Video Game Idea- Asteroids Style Game, Turtle shooting at trash and pollution
+![image](https://github.com/dylongaddi/362_Project/assets/93099493/e5834379-5822-41e3-ba4a-ff4e7b873158)
 - might also host it on website using WebGL
  
 # Languages/Tools used
