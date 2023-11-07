@@ -624,7 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: -4392375417873759223, guid: b3c413d716fcb43458593c7dc1660503, type: 3}
   thrustSpeed: 4
-  turnSpeed: 0.04
+  turnSpeed: 0.02
   bulletSpawnPoint: {fileID: 248422996}
 --- !u!50 &830265400
 Rigidbody2D:
