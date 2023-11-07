@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float thrustSpeed = 1.0f;
     public float turnSpeed = 1.0f;
 
+    public Transform bulletSpawnPoint;
     private Rigidbody2D _rigidBody;
 
     private bool _thrusting;
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        Bullet bullet = Instantiate(this.bulletPrefab, this.transform.position, this.transform.rotation);
+        Bullet bullet = Instantiate(this.bulletPrefab, this.bulletSpawnPoint.position, this.transform.rotation);
         bullet.Project(this.transform.up);
     }
 }
