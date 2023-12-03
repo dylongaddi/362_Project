@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
+using TMPro; 
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,14 @@ public class GameManager : MonoBehaviour
     public float respawnTime = 3.0f;
     public int lives = 3; 
     public int score = 0; 
+    public TMP_Text scoreText;  
+    public TMP_Text livesText;
+
+
+    void Start()
+    {
+        UpdateScoreText();
+    }
 
     public void AsteroidDestroyed(Enemy asteroid)
     {
@@ -24,6 +33,7 @@ public class GameManager : MonoBehaviour
             this.score += 25; // large asteroid
         }
 
+        UpdateScoreText();
         
     }
 
@@ -33,6 +43,7 @@ public class GameManager : MonoBehaviour
         this.explosion.Play();
 
         this.lives--;
+        UpdateScoreText();
 
         if (this.lives <= 0)
         {
@@ -58,6 +69,16 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.layer = LayerMask.NameToLayer("Player"); 
         
     }*/
+
+    private void UpdateScoreText()
+    {
+        if (scoreText != null && livesText != null)
+        {
+            scoreText.text = "Score: " + score.ToString();
+            livesText.text = "Lives: " + lives.ToString();
+        }
+    }
+
 
     private void GameOver()
     {
