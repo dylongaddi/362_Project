@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour
                 CreateSplit();
             }
 
+            FindObjectOfType<GameManager>().AsteroidDestroyed(this);  
             Destroy(this.gameObject);
         }
     }
