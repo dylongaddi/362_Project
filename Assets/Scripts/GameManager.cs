@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour
     {
         if (scoreText != null && livesText != null)
         {
-            scoreText.text = "Score: " + score.ToString();
-            livesText.text = "Lives: " + lives.ToString();
+            scoreText.text = "SCORE: " + score.ToString();
+            livesText.text = "LIVES: " + lives.ToString();
         }
     }
 
