@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     {
         if (_thrusting)
         {
-            _rigidBody.AddForce(this.transform.up * this.thrustSpeed);
+            _rigidBody.AddForce(-this.transform.right * this.thrustSpeed);
         }
 
         if (_turnDirection != 0.0f)
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         Bullet bullet = Instantiate(this.bulletPrefab, this.bulletSpawnPoint.position, this.transform.rotation);
-        bullet.Project(this.transform.up);
+        bullet.Project(-this.transform.right);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
