@@ -56,8 +56,8 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        Bullet bullet = Instantiate(this.bulletPrefab, this.bulletSpawnPoint.position, this.transform.rotation);
-        bullet.Project(-this.transform.right);
+        Bullet bullet = Instantiate(this.bulletPrefab, this.bulletSpawnPoint.position, this.bulletSpawnPoint.rotation);
+        bullet.Project(-this.bulletSpawnPoint.right);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
