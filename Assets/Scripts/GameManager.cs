@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
-using TMPro; 
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -51,18 +51,16 @@ public class GameManager : MonoBehaviour
         }else{
 
         Invoke(nameof(Respawn), this.respawnTime);
-        
+
+
         }
     }
 
     private void Respawn()
     {
         this.player.transform.position = Vector3.zero; 
-        //this.player.gameObject.layer = LayerMask.NameToLayer("Ignore Collisions"); 
         
         this.player.gameObject.SetActive(true);
-        
-        //Invoke(nameof(TurnOnCollisions), 3.0f);
     }
 
     /*private void TurnOnCollisions(){

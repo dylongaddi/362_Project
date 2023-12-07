@@ -14,7 +14,10 @@ public class Player : MonoBehaviour
     private bool _thrusting;
 
     private float _turnDirection;
-    
+
+    [SerializeField] private float invincibilityDuration = 7.0F; //respawn time is 3.0 seconds, so this - 3
+
+    public bool isInvincible = true;
 
     private void Awake()
     {
@@ -26,13 +29,18 @@ public class Player : MonoBehaviour
     {
         _thrusting = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
             _turnDirection = 1.0f;
-        } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) { 
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
             _turnDirection = -1.0f;
-        } else {
+        }
+        else
+        {
             _turnDirection = 0.0f;
-        }       
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
@@ -62,16 +70,33 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isInvincible)
+        {
+            return;
+        }
         if (collision.gameObject.tag == "Trash")
         {
             _rigidBody.velocity = Vector3.zero;
             _rigidBody.angularVelocity = 0.0f;
 
-            this.gameObject.SetActive(false); 
+            this.gameObject.SetActive(false);
 
             FindObjectOfType<GameManager>().PlayerDied();
+            isInvincible = true;
+            Debug.Log("player invincible");
+            Invoke("setInvincibilityOff", invincibilityDuration);
         }
     }
+
+    public void setInvincibilityOff()
+    {
+        isInvincible = false;
+        Debug.Log("player no longer invincible");
+    }
 }
+
+
+
+    
 
     
