@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public Player player;
-    public ParticleSystem explosion; 
+    public ParticleSystem explosion;
     public float respawnTime = 3.0f;
-    public int lives = 3; 
-    public int score = 0; 
-    public TMP_Text scoreText;  
+    public int lives = 3;
+    public int score = 0;
+    public TMP_Text scoreText;
     public TMP_Text livesText;
+    public GameObject gameOverUI;
+    public GameObject pauseMenuUI;
 
 
     void Start()
@@ -22,24 +25,29 @@ public class GameManager : MonoBehaviour
 
     public void AsteroidDestroyed(Enemy asteroid)
     {
-        this.explosion.transform.position = asteroid.transform.position; 
+        this.explosion.transform.position = asteroid.transform.position;
         this.explosion.Play();
 
-        if (asteroid.size < 0.75f) {
+        if (asteroid.size < 0.75f)
+        {
             this.score += 100; // small asteroid
-        } else if (asteroid.size < 1.2f) {
+        }
+        else if (asteroid.size < 1.2f)
+        {
             this.score += 50; // medium asteroid
-        } else {
+        }
+        else
+        {
             this.score += 25; // large asteroid
         }
 
         UpdateScoreText();
-        
+
     }
 
     public void PlayerDied()
     {
-        this.explosion.transform.position = this.player.transform.position; 
+        this.explosion.transform.position = this.player.transform.position;
         this.explosion.Play();
 
         this.lives--;
@@ -48,9 +56,11 @@ public class GameManager : MonoBehaviour
         if (this.lives <= 0)
         {
             GameOver();
-        }else{
+        }
+        else
+        {
 
-        Invoke(nameof(Respawn), this.respawnTime);
+            Invoke(nameof(Respawn), this.respawnTime);
 
 
         }
@@ -58,8 +68,8 @@ public class GameManager : MonoBehaviour
 
     private void Respawn()
     {
-        this.player.transform.position = Vector3.zero; 
-        
+        this.player.transform.position = Vector3.zero;
+
         this.player.gameObject.SetActive(true);
     }
 
@@ -78,8 +88,13 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void GameOver()
-    {
+    // Update is called once per frame
 
+    void GameOver()
+    {
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
+
 }
+    
