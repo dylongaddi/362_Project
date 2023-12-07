@@ -1,6 +1,4 @@
 # 362_Project
-91% of storage used … If you run out, you won't have enough storage to create, edit, and upload files. Get 100 GB of storage for $1.99 $0.49/month for 2 months.
-# 362_Project
 
 # Team 1
 
